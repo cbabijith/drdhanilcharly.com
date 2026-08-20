@@ -13,11 +13,14 @@ const inter = Inter({
   display: "swap",
 });
 
+// Static 400 normal + italic only (headings are never bold) — a fraction of
+// the full variable font, and true italics instead of synthetic ones.
 const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   variable: "--font-fraunces",
   display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
 });
 
 export const metadata: Metadata = {

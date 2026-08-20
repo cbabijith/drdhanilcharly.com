@@ -103,7 +103,6 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 96, "SOFT" 40, "WONK" 0;
 }
 
 .text-balance { text-wrap: balance; }

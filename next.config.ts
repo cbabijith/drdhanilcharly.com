@@ -4,12 +4,13 @@ const nextConfig: NextConfig = {
   // Standard (non-export) build: every route is still prerendered as static
   // HTML, and Vercel serves them from its edge CDN with immutable asset
   // caching and automatic compression — the fastest setup for this site.
-  //
-  // Images are pre-optimized (WebP, exact render sizes) via
-  // scripts/optimize-images.mjs, so the built-in optimizer is unnecessary —
-  // direct immutable CDN delivery is faster than on-demand transforms.
   images: {
-    unoptimized: true,
+    // Edge optimizer negotiates AVIF (30-50% smaller than the source WebP)
+    // with automatic fallbacks for older browsers, cached at the CDN edge.
+    formats: ["image/avif", "image/webp"],
+    qualities: [80],
+    minimumCacheTTL: 31536000,
+    deviceSizes: [400, 640, 768, 1024, 1280, 1536],
   },
   poweredByHeader: false,
   async headers() {

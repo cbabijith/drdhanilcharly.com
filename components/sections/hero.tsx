@@ -116,7 +116,9 @@ export default function Hero() {
                   fill
                   sizes="(max-width: 1024px) 90vw, 34vw"
                   className="object-cover object-top"
-                  preload
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
                 />
                 <div
                   aria-hidden
