@@ -20,7 +20,7 @@ export default function DislocationSpotlight() {
               </p>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="font-display text-balance mt-5 text-4xl leading-[1.08] tracking-tight text-ink sm:text-5xl">
+              <h2 className="font-display text-balance mt-5 text-[2.05rem] leading-[1.14] tracking-tight text-ink sm:text-5xl sm:leading-[1.08]">
                 {dislocation.heading.split("&")[0]}&amp;
                 <span className="text-brand-700 italic">{dislocation.heading.split("&")[1]}</span>
               </h2>
@@ -88,7 +88,7 @@ export default function DislocationSpotlight() {
         {/* Process */}
         <div className="mt-24 lg:mt-32">
           <Reveal variant="fade">
-            <h3 className="text-center font-display text-3xl tracking-tight text-ink sm:text-4xl">
+            <h3 className="text-center font-display text-[1.7rem] tracking-tight text-ink sm:text-4xl">
               How it <span className="text-brand-700 italic">works</span>
             </h3>
           </Reveal>

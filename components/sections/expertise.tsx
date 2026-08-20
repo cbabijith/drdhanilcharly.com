@@ -27,7 +27,7 @@ export default function Expertise() {
             </p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="font-display text-balance mt-4 text-4xl leading-[1.1] tracking-tight sm:text-5xl">
+            <h2 className="font-display text-balance mt-4 text-[2.05rem] leading-[1.14] tracking-tight sm:leading-[1.1] sm:text-5xl">
               Five specialities.{" "}
               <span className="text-brand-300 italic">One standard: excellence.</span>
             </h2>

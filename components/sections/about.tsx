@@ -40,7 +40,7 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal delay={80}>
-            <h2 className="font-display text-balance mt-4 text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl">
+            <h2 className="font-display text-balance mt-4 text-[2.05rem] leading-[1.14] tracking-tight sm:leading-[1.1] text-ink sm:text-5xl">
               Surgery with precision.{" "}
               <span className="text-brand-700 italic">Care without compromise.</span>
             </h2>

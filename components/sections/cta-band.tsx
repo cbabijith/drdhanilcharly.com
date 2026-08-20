@@ -19,7 +19,7 @@ export default function CtaBand() {
               </p>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="font-display text-balance mx-auto mt-4 max-w-3xl text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h2 className="font-display text-balance mx-auto mt-4 max-w-3xl text-[2.15rem] leading-[1.12] tracking-tight text-white sm:text-5xl sm:leading-[1.08] lg:text-6xl">
                 Ready to move{" "}
                 <span className="text-brand-300 italic">without pain?</span>
               </h2>

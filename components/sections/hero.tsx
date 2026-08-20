@@ -28,8 +28,8 @@ export default function Hero() {
         {/* Copy */}
         <div className="max-w-2xl">
           <Reveal variant="fade">
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-brand-200 bg-white/70 py-1.5 pl-2 pr-4 text-[0.8rem] font-semibold tracking-wide text-brand-700 backdrop-blur">
-              <span className="relative flex h-5 w-5 items-center justify-center">
+            <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-brand-200 bg-white/70 py-1.5 pl-2 pr-4 text-[0.72rem] font-semibold tracking-wide text-brand-700 backdrop-blur sm:text-[0.8rem]">
+              <span className="relative flex h-5 w-5 shrink-0 items-center justify-center">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-brand-400/50 animate-pulse-ring" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-600" />
               </span>
@@ -38,7 +38,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="font-display text-balance mt-6 text-[2.75rem] leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-[4.4rem]">
+            <h1 className="font-display text-balance mt-6 text-[2.4rem] leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-[4.4rem] lg:leading-[1.05]">
               Precision care for{" "}
               <span className="relative whitespace-nowrap text-brand-700 italic">
                 shoulders
@@ -52,7 +52,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={200}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+            <p className="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-ink-soft sm:text-lg">
               Advanced keyhole surgery, sports medicine and regenerative joint
               care in Thrissur — personalised treatment that gets you back to
               the life you love.
@@ -80,16 +80,21 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={400}>
-            <p className="mt-9 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-ink-soft">
-              <span className="text-ink">{doctor.name}</span>
-              <span aria-hidden className="text-brand-400">—</span>
+            <div className="mt-8 flex max-w-full flex-wrap items-center gap-x-2 gap-y-2 rounded-2xl border border-line bg-white/70 px-4 py-3.5 backdrop-blur lg:mt-9 lg:inline-flex lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-0">
+              <span className="w-full text-sm font-semibold text-ink sm:w-auto">
+                {doctor.name}
+                <span aria-hidden className="ml-2 hidden text-brand-400 lg:inline">—</span>
+              </span>
               {doctor.credentials.split(" · ").map((c) => (
-                <span key={c} className="inline-flex items-center gap-1.5">
+                <span
+                  key={c}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-[0.72rem] font-semibold text-brand-700 sm:text-[0.78rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:text-sm lg:font-medium lg:text-ink-soft"
+                >
                   <span aria-hidden className="h-1 w-1 rounded-full bg-gold-400" />
                   {c}
                 </span>
               ))}
-            </p>
+            </div>
           </Reveal>
         </div>
 
@@ -127,7 +132,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating highlight cards */}
+            {/* Floating highlight cards — desktop only; on phones they would
+                sit over the doctor's face, so mobile uses the chip row below. */}
             {heroHighlights.map((h, i) => {
               const Icon = highlightIcons[i] ?? ActivityIcon;
               const pos = [
@@ -138,7 +144,7 @@ export default function Hero() {
               return (
                 <div
                   key={h.label}
-                  className={`absolute ${pos} flex items-center gap-3 rounded-2xl border border-white/60 bg-white/85 px-4 py-3 shadow-xl shadow-ink/10 backdrop-blur-md animate-float`}
+                  className={`absolute ${pos} hidden items-center gap-3 rounded-2xl border border-white/60 bg-white/85 px-4 py-3 shadow-xl shadow-ink/10 backdrop-blur-md animate-float lg:flex`}
                   style={{ animationDelay: `${i * 1.6}s` }}
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-600/10 text-brand-700">
@@ -147,6 +153,26 @@ export default function Hero() {
                   <span>
                     <span className="block text-sm font-semibold text-ink">{h.label}</span>
                     <span className="block text-xs text-ink-soft">{h.sub}</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile highlights — clean chip row under the portrait */}
+          <div className="mt-5 grid grid-cols-3 gap-2 lg:hidden">
+            {heroHighlights.map((h, i) => {
+              const Icon = highlightIcons[i] ?? ActivityIcon;
+              return (
+                <div
+                  key={h.label}
+                  className="flex flex-col items-center gap-2 rounded-2xl border border-line bg-white/80 px-2 py-3.5 text-center backdrop-blur"
+                >
+                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand-600/10 text-brand-700">
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <span className="text-[0.68rem] font-semibold leading-tight text-ink">
+                    {h.label}
                   </span>
                 </div>
               );

@@ -45,7 +45,7 @@ export default function Gallery() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-600">
               Gallery
             </p>
-            <h2 className="font-display text-balance mt-4 text-4xl leading-[1.1] tracking-tight text-ink sm:text-5xl">
+            <h2 className="font-display text-balance mt-4 text-[2.05rem] leading-[1.14] tracking-tight sm:leading-[1.1] text-ink sm:text-5xl">
               Inside the practice,{" "}
               <span className="text-brand-700 italic">close to every patient</span>
             </h2>
