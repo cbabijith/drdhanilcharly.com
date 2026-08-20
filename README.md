@@ -21,12 +21,32 @@ bun run dev        # http://localhost:3000
 ## Build & deploy
 
 ```bash
-bun run build      # static export → ./out
-bunx serve out     # preview the production build locally
+bun run build      # production build (all routes prerendered static)
+bun run start      # serve the production build locally (what Vercel runs)
 ```
 
-Deploy the `out/` folder to any static host (Vercel, Netlify, Cloudflare Pages,
-S3 + CDN…). No server runtime is required.
+### Deploy on Vercel (recommended)
+
+The repo is Vercel-ready with zero configuration:
+
+1. Push to GitHub (this repo: `git@github.com:cbabijith/drdhanilcharly.com.git`).
+2. In Vercel: **Add New → Project → Import** the GitHub repo.
+3. Vercel auto-detects Next.js + Bun — just click **Deploy**.
+4. Optional: add the custom domain `drdhanilcharly.com` in
+   **Project → Settings → Domains** and point DNS at Vercel.
+
+Every `git push` to `main` deploys production automatically; pull requests get
+preview deployments.
+
+Performance choices baked in:
+
+- Every route is prerendered static HTML served from Vercel's edge CDN.
+- Images are pre-optimized WebP at exact render sizes and served with a
+  `Cache-Control: immutable` one-year cache — no on-demand transform hop.
+- Fonts are self-hosted via `next/font` (no external requests, no layout shift).
+- No animation/UI libraries — all motion is CSS + one tiny IntersectionObserver.
+- Security headers (`X-Content-Type-Options`, `Referrer-Policy`,
+  `X-Frame-Options`) and `poweredByHeader: false` are set in `next.config.ts`.
 
 ## Structure
 
